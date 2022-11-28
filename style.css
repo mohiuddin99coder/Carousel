@@ -1,0 +1,119 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    margin:0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    color:white
+}
+
+.header {
+    position: absolute;
+    top:5vh;
+    text-align: center;
+    color: rgba(173, 168, 168, 0.674);
+}
+.header h1 {
+    font-size: 4rem;
+}
+.carousel {
+    /* border: 2px solid white; */
+    width: 80vw;
+    height:70vh;
+    position:relative;
+}
+.carousel > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 100ms;
+}
+.slide > img {
+    display: block;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgb(133, 129, 129);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width:auto;
+    height:70vh;
+    object-fit: center;
+    object-position: center;
+}
+
+.slide[data-active] {
+    opacity: 1;
+    z-index: 1;
+    transition-delay: 0ms;
+}
+
+.carousel-button {
+   position: absolute; 
+   z-index: 2;
+   background: none;
+   border: none;
+   font-size: 4rem;
+   top:50%;
+   transform: translateY(-50%);
+   color: rgba(255,255,255,.5);
+   cursor: pointer;
+   border-radius: .25rem;
+   padding: 0 1rem;
+   background-color: rgba(84, 79, 79, 0.646);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.carousel-button:hover,
+.carousel-button:focus {
+     color: white;
+     background-color: rgb(40, 38, 38);;
+}
+
+.carousel-button:focus {
+    outline: 1px solid black;
+}
+
+.carousel-button.prev {
+    left: 1rem;
+}
+.carousel-button.next {
+    right: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+    .slide > img {
+        width: 80vw;
+    }
+    .carousel-button {
+        font-size: 1rem;
+     }
+}
+@media only screen and (max-width: 900px) {
+    .header h1 {
+        font-size: 3rem;
+    }
+    .slide > img {
+        width: 80vw;
+        height: 80vh;
+    }
+    .carousel-button {
+        font-size: 2rem;
+     }
+}
+
